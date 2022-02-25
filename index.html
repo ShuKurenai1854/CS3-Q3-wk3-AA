@@ -3,25 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <script>
-      function  {
-        let bday = prompt("Day");
-        let bmonth = prompt("Month");
-        let byear = prompt("Year");
-        let bdate = new Date(bmonth + "/" + bday + "/" + byear);
-        if (byear % 400 == 0) {
-          bday += 86400000;
+      let bday = prompt("Day");
+      let bmonth = prompt("Month");
+      let byear = prompt("Year");
+      let bdate = new Date(bmonth + "/" + bday + "/" + byear);
+      let ageExact = Date.now() - bdate.getTime();
+      for (a = ageExact.getYear();a < Date.now.getYear();a++) {
+        if (a % 400 == 0) {
+          ageExact += 86400000;
         }
-        else if (byear % 100 == 0) {
+        else if (a % 100 == 0) {
           ;
         }
-        else if (byear % 4 == 0) {
-          bday += 86400000;
+        else if (a % 4 == 0) {
+          ageExact += 86400000;
         }
       }
+      let ageDate = new Date(ageExact);
+      document.write(ageDate.getYear - 1970);
     </script>
   </body>
 </html>
