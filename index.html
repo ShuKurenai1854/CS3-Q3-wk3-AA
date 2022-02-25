@@ -6,9 +6,9 @@
   </head>
   <body>
     <script>
-      let bday = prompt("Day");
-      let bmonth = prompt("Month");
-      let byear = prompt("Year");
+      let bday = prompt("Input day");
+      let bmonth = prompt("Input month (as a number)");
+      let byear = prompt("Input year (in 4 digits)");
       let bdate = new Date(bmonth + "/" + bday + "/" + byear);
       let ageExact = Date.now() - bdate.getTime();
       for (a = ageExact.getYear();a < Date.now.getYear();a++) {
@@ -23,7 +23,7 @@
         }
       }
       let ageDate = new Date(ageExact);
-      document.write(ageDate.getYear - 1970);
+      document.write(`${ageDate.getYear() - 1970} years, ${ageDate.getMonth()} months, and ${ageDate.getDate} days`);
     </script>
   </body>
 </html>
