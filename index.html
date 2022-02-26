@@ -10,8 +10,14 @@
       let bmonth = prompt("Input month (as a number)");
       let byear = prompt("Input year (in 4 digits)");
       let bdate = new Date(bmonth + "/" + bday + "/" + byear);
+	  console.log(bdate);
       let ageExact = Date.now() - bdate.getTime();
-      for (a = ageExact.getYear();a < Date.now.getYear();a++) {
+	  console.log(ageExact);
+	  let ageDateRaw = new Date(ageExact);
+	  console.log(ageDateRaw);
+	  let ageYearRaw = ageDateRaw.getFullYear() - 1970;
+	  console.log(ageYearRaw);
+      for (a = bdate.getFullYear();a < bdate.getFullYear() + ageYearRaw;a++) {
         if (a % 400 == 0) {
           ageExact += 86400000;
         }
@@ -22,8 +28,8 @@
           ageExact += 86400000;
         }
       }
-      let ageDate = new Date(ageExact);
-      document.write(`${ageDate.getYear() - 1970} years, ${ageDate.getMonth()} months, and ${ageDate.getDate} days`);
+	  let ageDate = new Date(ageExact);
+      document.write(`${ageDate.getFullYear() - 1970} years, ${ageDate.getMonth()} months, and ${ageDate.getDate()} days`);
     </script>
   </body>
 </html>
