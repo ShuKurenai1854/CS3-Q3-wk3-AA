@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -10,26 +11,26 @@
       let bmonth = prompt("Input month (as a number)");
       let byear = prompt("Input year (in 4 digits)");
       let bdate = new Date(bmonth + "/" + bday + "/" + byear);
-	  console.log(bdate);
       let ageExact = Date.now() - bdate.getTime();
-	  console.log(ageExact);
-	  let ageDateRaw = new Date(ageExact);
-	  console.log(ageDateRaw);
-	  let ageYearRaw = ageDateRaw.getFullYear() - 1970;
-	  console.log(ageYearRaw);
-      for (a = bdate.getFullYear();a < bdate.getFullYear() + ageYearRaw;a++) {
-        if (a % 400 == 0) {
-          ageExact += 86400000;
-        }
-        else if (a % 100 == 0) {
-          ;
-        }
-        else if (a % 4 == 0) {
-          ageExact += 86400000;
-        }
-      }
 	  let ageDate = new Date(ageExact);
-      document.write(`${ageDate.getFullYear() - 1970} years, ${ageDate.getMonth()} months, and ${ageDate.getDate()} days`);
+	  let ageLeap = false;
+	  if (bdate.getYear() % 400 == 0) {
+        ageLeap = true;
+      }
+      else if (bdate.getYear() % 100 == 0) {
+        ;
+      }
+      else if (bdate.getYear() % 4 == 0) {
+        ageLeap = true;
+      }
+      document.write(`Age: ${ageDate.getYear()} years\n`);
+	  if (ageLeap) {
+		document.write("This birthyear is a leap year.");
+	  }
+	  else
+	  {
+	    document.write("This birthyear is not a birthyear.");
+	  }
     </script>
   </body>
 </html>
